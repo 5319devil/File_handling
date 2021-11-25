@@ -1,31 +1,24 @@
 1)EXTENSION WISE:-
-    
 import os 
 import shutil
 
-
 path=input(r"Enter Path")
 files=os.listdir(path)
-
 
 for file in files:
     filename,extension=os.path.splitext(file)
     extension=extension[1:]
     if os.path.exists(path+ '/' + extension):
         shutil.move(path+ '/' + file,path+'/'+extension+'/'+file)
-
     else:
         os.makedirs(path+'/'+extension)
         shutil.move(path+'/'+file,path+'/'+extension)
-
-        
 2)CATEGORY WISE:-
-    import os
+import os
 
 basepath = input("Enter Path: ")
 os.chdir(basepath)
 whitelist = ["Videos","Images","Files","Music","compressed_iso_and_exegutables","Others"]
-
 if not os.path.exists("Images"):
     print("Creating Images Folder")
     os.mkdir("Images")
